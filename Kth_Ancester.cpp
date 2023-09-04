@@ -9,13 +9,14 @@
 #define dm(mp) map<ll,ll> mp
 #define MOD 1000000007
 using namespace std;
-const int N=2e5;
+const int N=2e5+1;
 const int lg=20;
+// always make sure that 2^(lg-1)>=N
 vector<int>tree[N];
 int up[N][lg];
 void binlift(int src,int par){
     up[src][0]=par;
-    for (int i = 1; i < 20; i++)
+    for (int i = 1; i < lg; i++)
     {
         if (up[src][i-1]!=-1)
         {
@@ -39,17 +40,14 @@ int ans_query(int node,int jump){
     if(node==-1||jump==0){
         return node;
     }
-    for (int i = 19; i >= 0; i--)
+    for (int i = lg-1; i >= 0; i--)
     {
         if (jump>=(1<<i))
         {
            return ans_query(up[node][i],jump-(1<<i));
-        }
-        
+        } 
     }
-    
 }
-
 int main()
 {
     int n,q;
@@ -66,14 +64,15 @@ int main()
     }
     memset(up,-1,sizeof(up));
     binlift(1,-1);
-
-
+    
     for (int i = 0; i < q; i++)
     {
        int x,k;
        cin>>x>>k;
        cout<<ans_query(x,k)<<endl;
     }
+    
+    
     
     return 0;
 }
