@@ -52,5 +52,28 @@ int ans_query(int node,int jump){
 
 int main()
 {
+    int n,q;
+    cin>>n>>q;
+    // vector<int>v;
+    for (int i = 0; i < n-1; i++)
+    {
+        int x;
+        cin>>x;
+        // v.push_back(x);
+        tree[x].push_back(i+2);
+        tree[i+2].push_back(x);
+
+    }
+    memset(up,-1,sizeof(up));
+    binlift(1,-1);
+
+
+    for (int i = 0; i < q; i++)
+    {
+       int x,k;
+       cin>>x>>k;
+       cout<<ans_query(x,k)<<endl;
+    }
+    
     return 0;
 }
