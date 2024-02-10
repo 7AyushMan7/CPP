@@ -1,3 +1,18 @@
+/*
+
+  for KMP rolling hash over subtring check this out: https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/
+  note that the mod taken should be a prime greater than n square...simultaneously, u need to make sure that overflow does not happen
+  u can use the rolling hash for substrings (MAYBE), can do this by divinding the whole thingy by base (maths!), use mod inverse for division
+
+
+
+
+
+
+*/
+
+
+
 #include <bits/stdc++.h>
 #define ll long long int
 #define srv(v) sort(v.begin(),v.end())
