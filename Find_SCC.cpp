@@ -24,7 +24,7 @@ void dfs3(ll node, vector<ll> &vis, vector<ll> adjT[],vector<ll>&v)
         }
     }
 }
-ll kosaraju(ll V, vector<ll> adj[],vector<vector<ll> >&v)
+ll kosaraju(ll V, vector<ll> adj[],vector<vector<ll> >&v)  // make sure to pass V as size+1.....if edges are uptill n, V+1
 {
     vector<ll> vis(V, 0);
     stack<ll> st;
